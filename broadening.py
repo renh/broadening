@@ -1,4 +1,9 @@
-#!/usr/bin/env python2
+#! /usr/bin/env python
+# -*- coding: utf-8 -*-
+#
+# Copyright © 2017 Hao Ren <renh.cn@gmail.com>
+#
+# Distributed under terms of the LGPLv3 license.
 
 #==============================================================================
 # Module documentation
@@ -159,7 +164,7 @@ if __name__ == '__main__':
             out_data[:,0] = broadening.X
             if method == 'G':
                 out_fh.write('{:^18}\n'.format('Gaussian'))
-                out_data[:,1] = broadeing.Gaussian()
+                out_data[:,1] = broadening.Gaussian()
             elif method == 'L':
                 out_fh.write('{:^18}\n'.format('Lorentzian'))
                 out_data[:,1] = broadening.Lorentzian()
