@@ -104,6 +104,9 @@ if __name__ == '__main__':
         raise ValueError(f'Column number greater than number of data columns {len(inp_data[0])}')
     inp_data = inp_data[:,(args.xcol-1, args.ycol-1)]
 
+    idx = inp_data[:,0].argsort()
+    inp_data = inp_data[idx]
+
     input_x_range = inp_data[-1,0] - inp_data[0,0]
     if args.gamma:
         if args.gamma < 0:
@@ -115,11 +118,11 @@ if __name__ == '__main__':
         else:
             raise ValueError('Can not generate default Gamma value')
 
-    if args.low:
+    if args.low is not None:
         lower_bound = args.low
     else:
         lower_bound = inp_data[0,0] - input_x_range / 3.0
-    if args.high:
+    if args.high is not None:
         higher_bound = args.high
     else:
         higher_bound = inp_data[-1,0] + input_x_range / 3.0
